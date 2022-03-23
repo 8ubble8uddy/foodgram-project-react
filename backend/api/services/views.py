@@ -8,7 +8,6 @@ from api.recipes.models import Recipe
 from api.services.serializers import (RecipeInServiceSerializer,
                                       UserInServiceSerializer)
 from api.users.models import User
-
 from core.pagination import CustomPagination
 from core.views import CustomServiceViewset
 

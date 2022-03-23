@@ -2,7 +2,6 @@ from django.core.validators import MinValueValidator
 from django.db import models
 
 from api.users.models import User
-
 from core.models import CustomModel
 
 
@@ -77,3 +76,9 @@ class IngredientInRecipe(models.Model):
     class Meta:
         verbose_name = 'Ингредиент в рецепте'
         verbose_name_plural = 'Ингредиенты в рецептах'
+        constraints = [
+            models.UniqueConstraint(
+                fields=['recipe', 'ingredient'],
+                name='unique_ingredient_in_recipe',
+                ),
+            ]

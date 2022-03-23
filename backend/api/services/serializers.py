@@ -3,7 +3,6 @@ from drf_base64.serializers import Base64ImageField
 
 from api.recipes.models import Recipe
 from api.users.models import User
-
 from core.serializers import CustomServiceSerializer
 
 

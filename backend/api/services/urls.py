@@ -12,6 +12,14 @@ router.register('users', SubscribeViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('recipes/download_shopping_cart/', DownloadShoppingCart.as_view()),
-    path('users/subscriptions/', SubscriptionList.as_view()),
+    path(
+        'recipes/download_shopping_cart/',
+        DownloadShoppingCart.as_view(),
+        name='download_shopping_cart',
+        ),
+    path(
+        'users/subscriptions/',
+        SubscriptionList.as_view(),
+        name='subscriptions',
+        ),
 ]

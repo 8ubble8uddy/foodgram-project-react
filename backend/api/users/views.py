@@ -1,7 +1,6 @@
 from djoser.views import UserViewSet
 
 from api.users.serializers import CustomUserSerializer
-
 from core.pagination import CustomPagination
 from core.permissions import UserPermission
 

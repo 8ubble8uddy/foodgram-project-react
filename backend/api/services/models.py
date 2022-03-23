@@ -2,7 +2,6 @@ from django.db import models
 
 from api.recipes.models import Recipe
 from api.users.models import User
-
 from core.models import CustomServiceModel
 
 

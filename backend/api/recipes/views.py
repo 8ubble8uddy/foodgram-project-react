@@ -1,14 +1,14 @@
 from django.db.models import Count, Q
-from rest_framework import exceptions, filters, permissions, viewsets
+from rest_framework import filters, permissions, viewsets
 from django_filters.rest_framework import DjangoFilterBackend
 
 from api.recipes.models import Ingredient, Recipe, Tag
 from api.recipes.serializers import (IngredientSerializer,
                                      RecipeSerializer,
                                      TagSerializer)
-
 from core.filters import RecipeFilterSet
 from core.pagination import CustomPagination
+from core.permissions import RecipePermission
 from core.views import http_methods_except
 
 
@@ -29,7 +29,7 @@ class TagViewSet(viewsets.ReadOnlyModelViewSet):
 class RecipeViewSet(viewsets.ModelViewSet):
     serializer_class = RecipeSerializer
     http_method_names = http_methods_except('PUT')
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (RecipePermission,)
     pagination_class = CustomPagination
     filter_backends = (DjangoFilterBackend,)
     filterset_class = RecipeFilterSet
@@ -51,17 +51,3 @@ class RecipeViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         user = self.request.user
         serializer.save(author=user)
-
-    def perform_update(self, serializer):
-        if serializer.instance.author != self.request.user:
-            raise exceptions.PermissionDenied(
-                'Изменение чужого контента запрещено!'
-                )
-        super().perform_update(serializer)
-
-    def perform_destroy(self, recipe):
-        if recipe.author != self.request.user:
-            raise exceptions.PermissionDenied(
-                'Удаление чужого контента запрещено!'
-                )
-        super().perform_destroy(recipe)

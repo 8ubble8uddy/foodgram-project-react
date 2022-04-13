@@ -8,6 +8,7 @@ const Button = ({
   clickHandler,
   className,
   disabled,
+  tooltip,
   type = 'button'
 }) => {
   const classNames = cn(styles.button, className, {
@@ -21,6 +22,15 @@ const Button = ({
     >
       {children}
     </a>
+  }
+  if (tooltip) {
+    return <button
+      data-tip
+      className={classNames}
+      onClick={_ => clickHandler && clickHandler()}
+    >
+      {children}
+    </button>    
   }
   return <button
     className={classNames}

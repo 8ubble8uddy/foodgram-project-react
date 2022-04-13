@@ -23,7 +23,7 @@ const Checkbox = ({
     <button
       className={classNames}
       onClick={clickHandler}
-      style={{ backgroundColor: value && color }}
+      style={{ backgroundColor: value && color, color }}
       type='button'
     >
       {value ? <Icons.CheckIcon /> : ''}

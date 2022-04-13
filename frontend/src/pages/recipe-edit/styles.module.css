@@ -39,6 +39,8 @@
   text-align: left;
   margin-bottom: 30px;
   padding-left: 230px;
+  text-decoration: underline;
+  text-decoration-skip: objects;
 }
 
 .ingredientsAdded {
@@ -101,6 +103,7 @@
 .deleteRecipe {
   font-size: 18px;
   text-decoration: underline;
+  text-decoration-skip: objects;
   margin-left: 26px;
   color: #000;
   cursor: pointer;

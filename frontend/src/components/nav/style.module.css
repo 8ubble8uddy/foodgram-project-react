@@ -26,7 +26,7 @@
   height: 100%;
   color: #000000;
   cursor: pointer;
-  position: relative;
+  position: static;
 }
 .nav__item:last-child {
     margin-right: 0;
@@ -50,11 +50,16 @@
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 16px;
     color: inherit;
     padding-bottom: 14px;
     cursor: inherit;
     font-family: 'Montserrat', sans-serif;
+}
+
+.nav__link:hover{
+  border-bottom: 1px solid #4A61DD;
+  color: #4A61DD;
 }
 
 .nav__link_active {

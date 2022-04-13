@@ -7,6 +7,7 @@ import Description from './description'
 import cn from 'classnames'
 import { useRouteMatch, useParams, useHistory } from 'react-router-dom'
 import MetaTags from 'react-meta-tags'
+import ReactTooltip from 'react-tooltip'
 
 import { useRecipe } from '../../utils/index.js'
 import api from '../../api'
@@ -64,6 +65,7 @@ const SingleCard = ({ loadItem, updateOrders }) => {
           <div className={styles["single-card__header-info"]}>
               <h1 className={styles["single-card__title"]}>{name}</h1>
               {authContext && <Button
+                tooltip={true}
                 modifier='style_none'
                 clickHandler={_ => {
                   handleLike({ id, toLike: Number(!is_favorited) })
@@ -71,6 +73,9 @@ const SingleCard = ({ loadItem, updateOrders }) => {
               >
                 {is_favorited ? <Icons.StarBigActiveIcon /> : <Icons.StarBigIcon />}
               </Button>}
+              <ReactTooltip place='bottom' type='dark' effect='solid'>
+                <span>Добавить в избранное</span>
+              </ReactTooltip>
           </div>
           <TagsContainer tags={tags} />
           <div>
@@ -91,9 +96,10 @@ const SingleCard = ({ loadItem, updateOrders }) => {
             </p>
           </div>
           <div className={styles['single-card__buttons']}>
-            {authContext && <Button
+            {<Button
               className={styles['single-card__button']}
               modifier={is_in_shopping_cart ? 'style_light' : 'style_dark-blue'}
+              href={authContext ? '' : '/signin'}
               clickHandler={_ => {
                 handleAddToCart({ id, toAdd: Number(!is_in_shopping_cart), callback: updateOrders })
               }}

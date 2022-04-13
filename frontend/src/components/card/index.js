@@ -43,9 +43,10 @@ const Card = ({
       </div>
       
       <div className={styles.card__footer}>
-          {authContext && <Button
+          {<Button
             className={styles.card__add}
             modifier={is_in_shopping_cart ? 'style_light' : 'style_light-blue'}
+            href={authContext ? '' : '/signin'}
             clickHandler={_ => {
               handleAddToCart({
                 id,
@@ -53,7 +54,6 @@ const Card = ({
                 callback: updateOrders
               })
             }}
-            disabled={!authContext}
           >
             {is_in_shopping_cart ? <><Icons.DoneIcon />Рецепт добавлен</> : <><Icons.PlusIcon fill='#4A61DD' /> Добавить в покупки</>}
           </Button>}

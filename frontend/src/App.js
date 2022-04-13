@@ -184,13 +184,6 @@ function App() {
         <Switch>
           <ProtectedRoute
             exact
-            path='/user/:id'
-            component={User}
-            loggedIn={loggedIn}
-            updateOrders={updateOrders}
-          />
-          <ProtectedRoute
-            exact
             path='/cart'
             component={Cart}
             orders={orders}
@@ -237,6 +230,17 @@ function App() {
 
           <Route
             exact
+            path='/user/:id'
+          >
+            <User
+              loggedIn={loggedIn}
+              loadItem={loadSingleItem}
+              updateOrders={updateOrders}
+            />
+          </Route>
+
+          <Route
+            exact
             path='/recipes/:id'
           >
             <SingleCard
@@ -264,7 +268,7 @@ function App() {
             />
           </Route>
           <Route path='/'>
-            {loggedIn ? <Redirect to='/recipes' /> : <Redirect to='/signin'/>}
+            <Redirect to='/recipes' />
           </Route>
         </Switch>
         <Footer />

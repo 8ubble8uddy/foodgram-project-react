@@ -3,8 +3,8 @@
   min-width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #ddd;
-  border: none;
+  background-color: #ffffff;
+  border: 1px solid currentColor;
   outline: none;
   margin-right: 8px;
   cursor: pointer;

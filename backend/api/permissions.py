@@ -16,8 +16,8 @@ class UserPermission(permissions.BasePermission):
     def has_permission(self, request, view):
         if view.action in ['me', 'subscriptions']:
             return (
-                request.method in permissions.SAFE_METHODS and
-                request.user.is_authenticated
+                request.method in permissions.SAFE_METHODS
+                and request.user.is_authenticated
                 )
         return view.action in ALLOWED_ACTIONS
 
@@ -33,14 +33,14 @@ class RecipePermission(permissions.BasePermission):
         if view.action == 'download_shopping_cart':
             return request.user.is_authenticated
         return (
-            request.method in permissions.SAFE_METHODS or
-            request.user.is_authenticated
+            request.method in permissions.SAFE_METHODS
+            or request.user.is_authenticated
             )
 
     def has_object_permission(self, request, view, obj):
         if view.action in ['favorite', 'shopping_cart']:
             return request.user.is_authenticated
         return (
-            request.method in permissions.SAFE_METHODS or
-            (request.user.is_authenticated and obj.author == request.user)
+            request.method in permissions.SAFE_METHODS
+            or (request.user.is_authenticated and obj.author == request.user)
             )

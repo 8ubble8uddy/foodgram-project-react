@@ -6,12 +6,10 @@ services:
     volumes:
       - /var/lib/postgresql/data/
     env_file:
-      - ../backend/config/.env
+      - ./.env
 
   backend:
-    build:
-      context: ../backend
-      dockerfile: Dockerfile
+    image: 8ubble8uddy/foodgram_backend:latest
     restart: always
     volumes:
       - static_value:/app/static/
@@ -19,14 +17,12 @@ services:
     depends_on:
       - db
     env_file:
-      - ../backend/config/.env
+      - ./.env
 
   frontend:
-    build:
-      context: ../frontend
-      dockerfile: Dockerfile
+    image: 8ubble8uddy/foodgram_frontend:latest
     volumes:
-      - ../frontend/:/app/result_build/
+      - frontend_value:/app/result_build/build/
     depends_on:
       - db
 
@@ -34,10 +30,11 @@ services:
     image: nginx:1.19.3
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./nginx/:/etc/nginx/conf.d/
-      - ../frontend/build:/usr/share/nginx/html/
-      - ../docs/:/usr/share/nginx/html/api/docs/
+      - /etc/letsencrypt/:/etc/nginx/ssl/
+      - frontend_value:/usr/share/nginx/html/
       - static_value:/var/html/staticfiles/
       - media_value:/var/html/mediafiles/
     depends_on:
@@ -46,4 +43,5 @@ services:
 
 volumes:
   static_value:
-  media_value:  
+  media_value:
+  frontend_value:

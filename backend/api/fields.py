@@ -12,7 +12,7 @@ class ServiceSerializerField(fields.Field):
         user = self.context['request'].user
         obj_in_service = getattr(obj, self.service)
         return (
-            user.is_authenticated and
-            user != obj and
-            obj_in_service.filter(user_id=user.id).exists()
+            user.is_authenticated
+            and user != obj
+            and obj_in_service.filter(user_id=user.id).exists()
             )

@@ -1,8 +1,11 @@
 # Foodgram
 
-![CI](https://github.com/8ubble8uddy/foodgram-project-react/actions/workflows/foodgram_workflow.yml/badge.svg)
+[![CI](https://github.com/8ubble8uddy/foodgram-project-react/workflows/foodgram/badge.svg
+)](https://github.com/8ubble8uddy/foodgram-project-react/actions/workflows/foodgram_workflow.yml)
 
-### **https://foodgram.ddnsking.com/**
+### **Адрес**
+
+**https://foodgram.ddnsking.com/**
 
 ### **Описание**
 

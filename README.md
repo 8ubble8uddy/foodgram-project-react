@@ -1,49 +1,62 @@
-### Как запустить проект:
+# Foodgram
 
-Клонировать репозиторий и перейти в него в командной строке:
+[![CI](https://github.com/8ubble8uddy/foodgram-project-react/actions/workflows/foodgram_workflow.yml/badge.svg?branch=master)](https://github.com/8ubble8uddy/foodgram-project-react/actions/workflows/foodgram_workflow.yml)
 
+## https://foodgram.ddnsking.com/
+
+### **Описание**
+
+_[foodgram-project-react](https://github.com/8ubble8uddy/foodgram-project-react) - это онлайн-сервис и API для него. На этом сервисе пользователи могут публиковать рецепты, подписываться на публикации других пользователей, добавлять понравившиеся рецепты в список «Избранное», а перед походом в магазин скачивать сводный список продуктов, необходимых для приготовления одного или нескольких выбранных блюд._
+
+### **Технологии**
+
+```Python``` ```Django```  ```React``` ```PostgreSQL``` ```Nginx``` ```Gunicorn``` ```Docker```
+
+### **Как запустить проект:**
+
+Клонировать репозиторий и перейти внутри него в директорию ```infra/```:
 ```
 git clone https://github.com/8ubble8uddy/foodgram-project-react.git
 ```
-
-```
-cd foodgram-project-react/
-```
-
-Cоздать и активировать виртуальное окружение:
-
-```
-python3 -m venv env
+```sh
+cd foodgram-project-react/infra/
 ```
 
+Создать файл .env и добавить настройки подключения к базе данных:
+```sh
+nano .env
 ```
-source venv/bin/activate
 ```
-
-```
-python3 -m pip install --upgrade pip
-```
-
-Перейти в директорию ```backend/```:
-
-```
-cd backend/
-```
-
-Установить зависимости из файла requirements.txt:
-
-```
-pip install -r requirements.txt
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=postgres
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+DB_HOST=db
+DB_PORT=5432
 ```
 
-Выполнить миграции:
+Развернуть и запустить проект в контейнерах:
+```
+docker-compose up -d --build
+```
 
-```
-python3 manage.py migrate
-```
+Внутри контейнера ```backend```:
 
-Запустить проект:
+- _Выполнить миграции_
+  ```
+  docker-compose exec backend python manage.py migrate
+  ```
+- _Создать суперпользователя_
+  ```
+  docker-compose exec backend python manage.py createsuperuser
+  ```
+- _Собрать статику_
+  ```
+  docker-compose exec backend python manage.py collectstatic --no-input
+  ```
+- _Заполнить базу данных_
+  ```
+  docker-compose exec backend python manage.py loaddata static/fixtures.json
+  ```
 
-```
-python3 manage.py runserver
-```
+### Автор: Герман Сизов

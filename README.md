@@ -1,8 +1,8 @@
 # Foodgram
 
-[![CI](https://github.com/8ubble8uddy/foodgram-project-react/actions/workflows/foodgram_workflow.yml/badge.svg?branch=master)](https://github.com/8ubble8uddy/foodgram-project-react/actions/workflows/foodgram_workflow.yml)
+![CI](https://github.com/8ubble8uddy/foodgram-project-react/actions/workflows/foodgram_workflow.yml/badge.svg)
 
-## https://foodgram.ddnsking.com/
+### **https://foodgram.ddnsking.com/**
 
 ### **Описание**
 
@@ -14,12 +14,12 @@ _[foodgram-project-react](https://github.com/8ubble8uddy/foodgram-project-react)
 
 ### **Как запустить проект:**
 
-Клонировать репозиторий и перейти внутри него в директорию ```infra/```:
+Клонировать репозиторий и перейти внутри него в директорию ```infra/local/```:
 ```
 git clone https://github.com/8ubble8uddy/foodgram-project-react.git
 ```
 ```sh
-cd foodgram-project-react/infra/
+cd foodgram-project-react/infra/local/
 ```
 
 Создать файл .env и добавить настройки подключения к базе данных:

@@ -271,7 +271,7 @@ function App() {
             <Redirect to='/recipes' />
           </Route>
         </Switch>
-        <Footer />
+        {loggedIn && <Footer />}
       </div>
     </UserContext.Provider>
   </AuthContext.Provider>

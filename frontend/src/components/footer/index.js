@@ -9,7 +9,7 @@ const Footer = () => {
       <Container className={styles.footer__container}>
         <LinkComponent
           href={`/user/${userContext.id}`}
-          title={`Привет ${userContext.username}!`}
+          title={`${userContext.username}`}
           className={styles.footer__brand} 
         />
       </Container>

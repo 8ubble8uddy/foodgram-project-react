@@ -1,4 +1,4 @@
-name: foodgram
+name: foodgram-project-react
 
 on: [push]
 
@@ -64,6 +64,7 @@ jobs:
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foodgram_backend:latest
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foodgram_frontend:latest
+            cd foodgram/
             sudo docker-compose stop
             sudo docker-compose rm -f backend frontend
             sudo docker image prune -f

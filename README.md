@@ -1,11 +1,11 @@
 # Foodgram
 
-[![CI](https://github.com/8ubble8uddy/foodgram-project-react/workflows/foodgram/badge.svg
+[![CI](https://github.com/8ubble8uddy/foodgram-project-react/workflows/foodgram-project-react/badge.svg
 )](https://github.com/8ubble8uddy/foodgram-project-react/actions/workflows/foodgram_workflow.yml)
 
 ### **Адрес**
 
-**https://foodgram.ddnsking.com/**
+**https://foodgram.ddnsking.com/** _(сайт временно недоступен)_
 
 ### **Описание**
 
@@ -13,7 +13,7 @@ _[foodgram-project-react](https://github.com/8ubble8uddy/foodgram-project-react)
 
 ### **Технологии**
 
-```Python``` ```Django```  ```React``` ```PostgreSQL``` ```Nginx``` ```Gunicorn``` ```Docker```
+```Python``` ```Django```  ```React``` ```PostgreSQL``` ```Docker``` ```Gunicorn``` ```nginx```
 
 ### **Как запустить проект:**
 
@@ -61,5 +61,7 @@ docker-compose up -d --build
   ```
   docker-compose exec backend python manage.py loaddata static/fixtures.json
   ```
+
+**Проект будет доступен по адресу http://127.0.0.1/**
 
 ### Автор: Герман Сизов

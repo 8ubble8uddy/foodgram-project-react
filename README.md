@@ -3,6 +3,9 @@
 [![CI](https://github.com/8ubble8uddy/foodgram-project-react/workflows/foodgram-project-react/badge.svg
 )](https://github.com/8ubble8uddy/foodgram-project-react/actions/workflows/foodgram_workflow.yml)
 
+<kbd><img width="400" src="https://user-images.githubusercontent.com/83628490/171301644-1a3cce62-45ec-4654-83f1-34f6e8be4981.png"></kbd>
+<kbd><img width="400" src="https://user-images.githubusercontent.com/83628490/171301661-dd674fd7-55e7-4cb2-a964-afbab04bdb4f.png"></kbd>
+
 ### **Адрес**
 
 **https://foodgram.ddnsking.com/** _(сайт временно недоступен)_
